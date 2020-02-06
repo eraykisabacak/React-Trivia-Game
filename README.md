@@ -1,68 +1,202 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Trivia Game**
 
-## Available Scripts
+## [Demo](https://eraykisabacak-trivia-game.netlify.com)
 
-In the project directory, you can run:
+UI tarafıda **Bootstrap React** kullanılmıştır.
+Yüklenme ekranı **React Spinners** ile oluşturuldu.
+**React Lottie** ile animasyonlar yapılmıştır.
 
-### `yarn start`
+In this task, you are going to create a **multiple choice** quiz game with React.js using [Open Trivia Database](https://opentdb.com/)
+You may use any additional library that you like.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requirements
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- User should be able to start game by pressing a button
+- A game should be containing at least 10 questions.
+- If user selects the wrong answer, game ends.
+- Questions are fetched from Open Trivia Database Api
 
-### `yarn test`
+### Bonus Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+These are bonus features that are not mandatory for this task. But even if you decide not to implement these features for this task, if you implement your code to allow future implementation of these features, that is highly encouraged (just a comment describing why you implemented your code that way is sufficent)
 
-### `yarn build`
+1. Difficulty Selection
+2. Usage of Lottie Animation(https://github.com/chenqingspring/react-lottie - https://lottiefiles.com/)
+3. Multiple category options on welcome page
+4. 50% Joker - Disables two wrong answers(Can be used only once)
+5. Timer - User has 15 seconds to answer the question, if user does not answer the question in given time, user should be directed to a page which states that time's up.
+6. Point system - User earns points with respect to remaining time.
+7. Host your web application's final version on [Netlify](https://www.netlify.com/) or any other similar platform.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Getting Started
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Create a new react project following guide in this link: https://reactjs.org/docs/create-a-new-react-app.html \
+   If you like to use typescript(recommended) you may use these commands:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npx create-react-app trivia-app --template typescript
+cd trivia-app
+yarn start #or npm start
+```
 
-### `yarn eject`
+2. Generate an API URL for your desired category from https://opentdb.com/api_config.php
+   (Number of Questions : `10` and Select Type: `Multiple Choice`)\
+   Example Response:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+// https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which sign of the zodiac is represented by the Crab?",
+      "correct_answer": "Cancer",
+      "incorrect_answers": [
+        "Libra",
+        "Virgo",
+        "Sagittarius"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the shape of the toy invented by Hungarian professor Ernő Rubik?",
+      "correct_answer": "Cube",
+      "incorrect_answers": [
+        "Sphere",
+        "Cylinder",
+        "Pyramid"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "How many colors are there in a rainbow?",
+      "correct_answer": "7",
+      "incorrect_answers": [
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Five dollars is worth how many nickles?",
+      "correct_answer": "100",
+      "incorrect_answers": [
+        "50",
+        "25",
+        "69"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of the following presidents is not on Mount Rushmore?",
+      "correct_answer": "John F. Kennedy",
+      "incorrect_answers": [
+        "Theodore Roosevelt",
+        "Abraham Lincoln",
+        "Thomas Jefferson"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is Tasmania?",
+      "correct_answer": "An Australian State",
+      "incorrect_answers": [
+        "A flavor of Ben and Jerry&#039;s ice-cream",
+        "A Psychological Disorder",
+        "The Name of a Warner Brothers Cartoon Character"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What zodiac sign is represented by a pair of scales?",
+      "correct_answer": "Libra",
+      "incorrect_answers": [
+        "Aries",
+        "Capricorn",
+        "Sagittarius"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What nuts are used in the production of marzipan?",
+      "correct_answer": "Almonds",
+      "incorrect_answers": [
+        "Peanuts",
+        "Walnuts",
+        "Pistachios"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "According to the nursery rhyme, what fruit did Little Jack Horner pull out of his Christmas pie?",
+      "correct_answer": "Plum",
+      "incorrect_answers": [
+        "Apple",
+        "Peach",
+        "Pear"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "If you are caught &quot;Goldbricking&quot;, what are you doing wrong?",
+      "correct_answer": "Slacking",
+      "incorrect_answers": [
+        "Smoking",
+        "Stealing",
+        "Cheating"
+      ]
+    }
+  ]
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Possible Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### 1) Welcome Page:
 
-## Learn More
+Describing that this is a quiz game, and containing a get started button
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![IMG_0336](https://i.ibb.co/zNr161B/Welcome.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 2) Question Page:
 
-### Code Splitting
+Showing question, possible answers, current position(question number) and remaining time(optional)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![IMG_0336](https://i.ibb.co/xJKVkBH/Question.png)
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### 3) Correct Answer Page
 
-### Making a Progressive Web App
+A page that states that the user answered the question correctly. Contains a Continue button to see the next question.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![IMG_0336](https://i.ibb.co/sCyCfZd/Correct-Answer.png)
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### 4) Wrong Answer Page
 
-### Deployment
+A page that states that the user selected the wrong answer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+(There is no wireframe for this page, we would like to see your UI skills)
