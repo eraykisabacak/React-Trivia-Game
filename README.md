@@ -28,6 +28,15 @@ These are bonus features that are not mandatory for this task. But even if you d
 6. Point system - User earns points with respect to remaining time.
 7. Host your web application's final version on [Netlify](https://www.netlify.com/) or any other similar platform.
 
+### Images for application
+
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%201.png)
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%202.png)
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%203.png)
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%204.png)
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%205.png)
+![](https://github.com/eraykisabacak/React-Trivia-Game/blob/master/photo/Trivia%20Game%206.png)
+
 ### Getting Started
 
 1. Create a new react project following guide in this link: https://reactjs.org/docs/create-a-new-react-app.html \
